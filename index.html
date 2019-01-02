@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
     <script async="" src="js/js"></script>
     
@@ -66,7 +66,57 @@
           }
         }
     </style>
+    <style>
+        .menu-2 {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        }
+        .menu-2:before, .menu-2:after {
+        content: "";
+        position: absolute;
+        transition: all 0.3s;
+        }
 
+        .menu-2 {
+        border: 4px solid #000000;
+        }
+        .menu-2:hover {
+        border-color: aqua;
+        }
+        .menu-2:before, .menu-2:after {
+        background-color: #000000;
+        height: 4px;
+        width: 30px;
+        top: 50%;
+        left: 50%;
+        margin-left: -15px;
+        }
+        .menu-2:before {
+        margin-top: -6px;
+        }
+        .menu-2:after {
+        margin-top: 4px;
+        }
+
+        .menu-2-active {
+        transform: rotate(45deg);
+        border-color: red !important;
+        background-color: red !important;
+        }
+        .menu-2-active:before, .menu-2-active:after {
+        margin-left: -15px !important;
+        margin-top: -2px !important;
+        }
+        .menu-2-active:after {
+        transform: rotate(-90deg) !important;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -370,20 +420,20 @@
                     </div>
                 </div>
             </section>
-            <section class="section1">
+            <section class="section1 part">
                 <div style="background-color:springgreen;width:100vw;height:100vh;">
                     <div style="height:auto;text-align:center;font-size:5em";>
                         <h1>The Team</h1>
                     </div>
                 </div>
             </section>
-            <section class="section2">
+            <section class="section2 part">
                     <div style="background-color:teal;width:100vw;height:100vh;">
                         <div style="height:auto;text-align:center;font-size:5em";>
                             <h1>Previous Sponsors</h1>
                         </div>
                     </div>
-                </section>
+            </section>
             <footer class="footer">
                 <div class="container-fluid text-animate" style="opacity: 0; transform: translate(0%, 40%) matrix(1, 0, 0, 1, 0, 0);">
                     <div class="footer__contacts">
@@ -423,9 +473,9 @@
                 <i class="fa fa-instagram" style="font-size:24px;padding-bottom: 25%;"></i></br>
                 <i class="fa fa-youtube-play" style="font-size:20px;padding-bottom: 25%;"></i></br>
             </div>
-    
+            
             <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a> -->
                 <div class="overlay-content">
                   <a data-goto=".about" href="#" onclick="closeNav()">About</a>
                   <a href="#" onclick="closeNav()">Services</a>
@@ -433,36 +483,66 @@
                   <a href="#"onclick="closeNav()">Contact</a>
                 </div>
             </div>
-                
-            <a><span class="menu" style="color:black;font-size:30px;z-index: 5; position: fixed; right: 5%; top: 5%;" onclick="setTimeout(openNav, 500);">&#9776; Menu</span></a>
-                    <script>
-                        $(document).ready(function(){
-                            $(".menu").click(function(){
-                                var w = ($(window).width() / (1.25));
-                                var h = ($(window).height()/ (1.25));
-                                var l = ($(window).width()/ (10));
-                                $(".section").fadeOut(1000,"swing",);
-                                $(".section").fadeIn();
-                                $(".part").animate({marginLeft: l,height: h,width: w});
-    
-                                var w = ($(window).width());
-                                var h = ($(window).height());
-                                var l = 0;
-                                $(".part").delay(1000).animate({marginLeft: l,height: h,width: w});
+
+            <a class="menu-2" data-menu="2" style="z-index: 20;font-size:30px; position: fixed; right: 0%; top: 0%;" ></a>
+            <!-- <a><span class="menu" style="color:black;font-size:30px;z-index: 5; position: fixed; right: 5%; top: 5%;" onclick="setTimeout(openNav, 500);">&#9776; Menu</span></a> -->
+
+            <script>
+                var menu = $('.menu-2');
+                menu.on('click', function() {
+                var menuNum = $(this).data('menu');
+                $(this).toggleClass('menu-'+ menuNum +'-active');
+                })
+                // for menu closing
+                $(document).ready(function(){
+                            $(".menu-2").click(function(){
+                                if(document.getElementById("myNav").style.width=="100%")
+                                {
+                                    document.getElementById("myNav").style.width = "0%"; 
+                                }
+                                else
+                                {
+                                    document.getElementById("myNav").style.width = "100%";
+                                }
                             });
                         });
-                        function openNav() {
-                        document.getElementById("myNav").style.width = "100%";
-                        
-                        }
-    
-                        function closeNav() {
-                        document.getElementById("myNav").style.width = "0%";
-                        }
-                    </script>
-    
-    
 
+                
+                // closing function for menu options
+            
+                    var menuopt = $('.overlay-content a');
+                    var menu = $('.menu-2');
+
+                    menuopt.on('click', function() {
+                        var menuNum = $('.menu-2').data('menu');
+                        $('.menu-2').toggleClass('menu-'+ menuNum +'-active');
+                    })
+                    function closeNav()
+                    {
+                        document.getElementById("myNav").style.width = "0%";
+                    }
+                
+                
+            </script>
+
+            <!-- animation for menu onclick() -->
+            <!-- <script>
+                $(document).ready(function(){
+                    $(".menu").click(function(){
+                        var w = ($(window).width() / (1.25));
+                        var h = ($(window).height()/ (1.25));
+                        var l = ($(window).width()/ (10));
+                        $(".section").fadeOut(1000,"swing",);
+                        $(".section").fadeIn();
+                        $(".part").animate({marginLeft: l,height: h,width: w});
+
+                        var w = ($(window).width());
+                        var h = ($(window).height());
+                        var l = 0;
+                        $(".part").delay(1000).animate({marginLeft: l,height: h,width: w});
+                    });
+                });
+            </script> -->
     </div>
     <script type="text/javascript" src="js/app.js" async="async"></script>
 </body>
