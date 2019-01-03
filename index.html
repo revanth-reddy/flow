@@ -524,13 +524,18 @@
             <div id="myNav" class="overlay">
                 
                 <div class="overlay-content">
+                  <a data-goto="#landing" href="#" onclick="closeNav()">Home</a>
                   <a data-goto=".about" href="#" onclick="closeNav()">About</a>
                   <a href="#" onclick="closeNav()">Services</a>
                   <a href="#" onclick="closeNav()">Clients</a>
                   <a href="#"onclick="closeNav()">Contact</a>
                 </div>
             </div>
-
+            <script>
+                function closeNav() {
+                    document.getElementById("myNav").style.width = "0%";
+                }
+            </script>
             <a class="menu-2" data-menu="2" style="z-index: 20;font-size:30px; position: fixed; right: 0%; top: 0%;" ></a>
            
 
@@ -552,6 +557,9 @@
                                     document.getElementById("myNav").style.width = "100%";
                                 }
                             });
+                            $(".overlay-content a").click(function(){
+                                document.getElementById("myNav").style.width = "0%"; 
+                            });
                         });
 
                 
@@ -563,12 +571,7 @@
                     menuopt.on('click', function() {
                         var menuNum = $('.menu-2').data('menu');
                         $('.menu-2').toggleClass('menu-'+ menuNum +'-active');
-                    })
-                    function closeNav()
-                    {
-                        document.getElementById("myNav").style.width = "0%";
-                    }
-                
+                    })              
                 
             </script>
 
