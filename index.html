@@ -18,9 +18,16 @@
      <!-- landing -->
     
      <link rel="stylesheet" href="css/index.css">
+    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+    
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     
@@ -168,37 +175,33 @@
 
         <div id="wrapper">
 
-            <!-- landing -->
-                <section id="landing" >
-                    <div class="section_wrap" style="display: flex">
-                        <div class="view view-before">
-                            <div class="wrapper-before">
-                            <div class="birdimg">
-                                <img src="./img/image2.png" />
-                            </div>
-                            </div>
-                        </div>
-                        <div id="my_resizable" class="view view-after" style="position: absolute">
-                            <div class="wrapper-after">
-                                <div class="birdimg">
-                                    <img src="./img/image1.png" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
             <section class="section about">
-                <div class="about__intro" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-                    <div class="about__logo">
-                        <h1 style="font-size:5em;">About Us</h1>
-                    </div>
-                </div>
-                <div class="about__animation image-animation">
-                    <div class="image-animation__img" style="opacity: 0; transform: matrix(3, 0, 0, 3, 0, 0); position: absolute; top: 0px;">
-                        <figure class="fit-wrapper"><img class="lazy loaded" width="1920" height="1200" src="img/1.jpg" style=""> </figure>
-                    </div>
-                </div>
+                            <!-- landing -->
+                            <section id="landing" >
+                                    <div class="section_wrap" style="display: flex">
+                                        <div class="view view-before">
+                                            <div class="wrapper-before">
+                                            <div class="birdimg">
+                                                <img src="./img/image2.png" />
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div id="my_resizable" class="view view-after" style="position: absolute">
+                                            <div class="wrapper-after">
+                                                <div class="birdimg">
+                                                    <img src="./img/image1.png" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="about__animation image-animation">
+                                    <div class="image-animation__img" style="opacity: 0; transform: matrix(3, 0, 0, 3, 0, 0); position: absolute; top: 0px;">
+                                        <figure class="fit-wrapper"><img class="lazy loaded" width="1920" height="1200" alt="La maschera e l&#39;incubo" src="img/2.jpg" style=""> </figure>
+                                        <h2 class="about-heading"> ABOUT US</h2>
+                                    </div>
+                                </div>
                 <div class="about__info content-info">
                     <div class="container-fluid">
                         <div class="about__info-image dist">
@@ -292,6 +295,9 @@
             <section class="section painters" style="background-color:skyblue">
                 <div class="painters__animation image-animation-reverse">
                     <div class="image-animation__img" style="opacity: 1; position: absolute; top: 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div id="animate1" class="scroll-txt">
+                                    <h1>ABOUT US</h1>                       
+                            </div>
                         <figure class="fit-wrapper"><img class="lazy loaded" width="1920" height="1200"  src="img/2.jpg" style=""> </figure>
                     </div>
                 </div>

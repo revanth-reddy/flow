@@ -108,6 +108,18 @@ body {
   }
 
 
+  /* about us */
+  .about-heading {
+    position: absolute;
+    z-index: 999999;
+    color: white;
+    height: 100vh;
+    top: 30vh;
+    width: 100vw;
+    text-align: center;
+    font-size: 206px;
+  }
+
   /* mobile screen */
 
   @media screen and (max-width: 600px) {

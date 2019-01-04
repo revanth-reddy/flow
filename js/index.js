@@ -1,4 +1,3 @@
-
 //navbar
     $(document).ready(function(){
         $("#open").click(function(){
@@ -85,7 +84,7 @@
                                     Math.round(m/w * 300),
                                     255,
                                 ];
-                                    $('#landing').css('background','rgb('+rgb.join(',')+')');
+                                    $('.about').css('background','rgb('+rgb.join(',')+')');
                                 m--;     
                             }
                             if(l >= w/2)
@@ -118,4 +117,25 @@
             handles: "e"
         });
     } );
+
+
+/*scroll magic
+    var controller = new ScrollMagic.Controller();
+
+    var timeline = new TimelineMax();
+    var tween1 = TweenMax.to("#animate1", 1, {opacity:1, scale: 2.5,ease: Power1.easeOut});
+    var tween2 = TweenMax.to("#animate1", 1 , {opacity:0, scale: 0,ease: Power1.easeIn,delay:1});
+    timeline
+        .add(tween1)
+        .add(tween2);
+
+    new ScrollMagic.Scene({
+        triggerElement: "#trigger1",
+        triggerHook:'onLeave',
+        offset:'100',
+        duration:'150%',
+    })
+    .setTween(timeline) 
+    .addTo(controller);
+ */   
 
